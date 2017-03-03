@@ -78,6 +78,14 @@ call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/neosnippet.vim')
 call dein#add('Shougo/neosnippet-snippets')
 
+" Markdown plugins
+" syntax highlighting
+call dein#add('plasticboy/vim-markdown')
+" preview
+call dein#add('kannokanno/previm')
+" update preview
+call dein#add('tyru/open-browser.vim')
+
 " You can specify revision/branch/tag.
 call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
@@ -97,3 +105,6 @@ endif
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 inoremap <Esc> <Esc>
+
+" .mdファイルをMarkdownとして読み込む
+au BufRead,BufNewFile *.md set filetype=markdown
