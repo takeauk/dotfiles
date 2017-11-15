@@ -61,45 +61,28 @@ set nowrap
 
 "dein Scripts-----------------------------
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible
 endif
 
-" Required:
-set runtimepath+=/Users/main/.vim/bundle//repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/bundles/repos/github.com/Shougo/dein.vim
 
-" Required:
-call dein#begin('/Users/main/.vim/bundle/')
+if dein#load_state('~/.vim/bundles')
+  call dein#begin('~/.vim/bundles')
+  call dein#add('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('Shougo/vimshell')
+  call dein#end()
+  call dein#save_state()
+endif
 
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
-
-" Add or remove your plugins here:
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
-
-" Markdown plugins
-" syntax highlighting
-call dein#add('plasticboy/vim-markdown')
-" preview
-call dein#add('kannokanno/previm')
-" update preview
-call dein#add('tyru/open-browser.vim')
-
-" You can specify revision/branch/tag.
-call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
-
-" Required:
-call dein#end()
-
-" Required:
 filetype plugin indent on
+syntax enable
 
-" If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
 endif
-" End dein Scripts-------------------------
+"End dein Scripts-------------------------
 
 " .mdファイルをMarkdownとして読み込む
 au BufRead,BufNewFile *.md set filetype=markdown
