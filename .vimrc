@@ -1,77 +1,76 @@
-"--------------------
-"" 基本的な設定
-"--------------------
-"日本語入力(IM)自動オン/オフ
-set imdisable
+" Appearance
+set number
+set nowrap
+set guioptions-=r " remove right-hand scroll bar
 
-"新しい行のインデントを現在行と同じにする
-set autoindent 
- 
-"バックアップファイルのディレクトリを指定する
-set backupdir=$HOME/vimbackup
- 
-"クリップボードをWindowsと連携する
-set clipboard=unnamed
-  
-"vi互換をオフする
-set nocompatible
-   
-"スワップファイル用のディレクトリを指定する
-set directory=$HOME/vimbackup
-    
-"タブの幅
+" Encode
+set encoding=UTF-8
+set fileencoding=UTF-8
+set termencoding=UTF-8
+
+" File
+set hidden
+set autoread
+
+" Search
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set wrapscan
+nnoremap * *N
+
+" Input
+set expandtab
+"autocmd FileType cpp setlocal noexpandtab
+set autoindent
+set tabstop=4
 set shiftwidth=4
 
-"タブの代わりに空白文字を指定する
-set expandtab
-     
-"変更中のファイルでも、保存しないで他のファイルを表示する
-set hidden
-    
-"インクリメンタルサーチを行う
-set incsearch
-       
-"行番号を表示する
-set number
-        
-"閉括弧が入力された時、対応する括弧を強調する
-set showmatch
-      
-"新しい行を作った時に高度な自動インデントを行う
-set smarttab
-      
-" grep検索を設定する
-set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
-set grepprg=grep\ -nh
-       
-" 検索結果のハイライトをEsc連打でクリアする
-nnoremap <ESC><ESC> :nohlsearch<CR>
+set formatoptions-=ro
 
-" ウインドウのタイトルバーにファイルのパス情報等を表示する
-set title
+:set noswapfile"
+:set nobackup
+:set viminfo=
+:set noundofile
+:set cursorline
 
-" カーソル行に線を表示する
-set cursorline
+set clipboard+=unnamed
 
-" ペア括弧を表示する
-set showmatch
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
+augroup END
 
-" 行を折り返さない
-set nowrap
+set infercase
 
-"dein Scripts-----------------------------
+autocmd QuickFixCmdPost *grep* cwindow
+
+set tags=./tags;,tags;
+
+noremap <Space><CR> o<ESC>
+
+set guioptions-=L " remove left-hand scroll bar
+
+" dein
 if &compatible
   set nocompatible
 endif
 
-set runtimepath+=~/.vim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+let s:dein_dir = expand('~/.cache/dein')
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+  call dein#add("~/.cache/dein/repos/github.com/Shougo/dein.vim")
 
-if dein#load_state('~/.vim/bundles')
-  call dein#begin('~/.vim/bundles')
-  call dein#add('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/vimshell')
+  let s:toml_dir = expand('~/.cache/dein')
+  let s:toml = s:toml_dir . '/dein.toml'
+  let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
+
+  call dein#load_toml(s:toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
   call dein#end()
   call dein#save_state()
 endif
@@ -82,7 +81,64 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
-"End dein Scripts-------------------------
 
-" .mdファイルをMarkdownとして読み込む
-au BufRead,BufNewFile *.md set filetype=markdown
+" NERDTree
+let g:NERDTreeShowBookmarks=1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" NERDTreeTabs
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_synchronize_view=0
+
+" ale
+let g:ale_sign_column_always = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 0
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 1
+let g:ale_c_cppcheck_options = '--enable=warning,style'
+
+" unite.vim
+let g:unite_enable_start_insert=1
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+" vim-cheatsheet
+let g:cheatsheet#cheat_file = '~/vcs/private/cheatsheets/vim.md'
+
+" indentLine
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 111
+let g:indentLine_color_gui = '#708090'
+let g:indentLine_char = '¦' "use ¦, ┆ or │
+
+" vim-easymotion
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+set signcolumn=yes
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#min_keyword_length = 3
+let g:neocomplete#enable_auto_delimiter = 1
+let g:neocomplete#auto_completion_start_length = 1
+
+" imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+" imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+
+"hi clear SpellBad
+"hi SpellBad term=reverse ctermbg=12 gui=undercurl guisp=#006400
+"set spelllang+=cjk
