@@ -23,14 +23,13 @@
   "vim.visualstar": true,
   "c-cpp-flylint.clang.enable": false,
   "c-cpp-flylint.flexelint.enable": false,
-  "workbench.iconTheme": "vscode-icons",
   "workbench.editor.closeEmptyGroups": false,
   "terminal.integrated.copyOnSelection": true,
   "scm.alwaysShowProviders": true,
   "files.autoGuessEncoding": true,
-  "editor.fontSize": 16,
+  "editor.fontSize": 14,
+  "editor.fontFamily": "Osaka-Mono",
   "terminal.integrated.fontFamily": "monospace",
-  "editor.fontFamily": "Ricty Diminished Discord",
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
   "editor.snippetSuggestions": "top",
   "editor.tabCompletion": "onlySnippets",
@@ -42,4 +41,10 @@
   "workbench.colorTheme": "One Dark Pro",
   "todohighlight.keywordsPattern": "TODO|FIXME|\\\\(([^)]+)\\\\)",
   "todohighlight.isCaseSensitive": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "terminal.integrated.fontSize": 14,
+  "debug.console.fontSize": 14,
+  "cSpell.userWords": [
+    "。\n"
+  ]
 }
