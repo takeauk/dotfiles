@@ -25,6 +25,8 @@ ln -snfv $SCRIPT_DIR/.hyper.js ~/.hyper.js
 ln -snfv $SCRIPT_DIR/.gitignore_global ~/.gitignore_global
 ln -snfv $SCRIPT_DIR/.tigrc ~/.tigrc
 
-ln -snfv $SCRIPT_DIR/.vscode ~/Library/Application\ Support/Code/User
+ln -snfv $SCRIPT_DIR/.vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -snfv $SCRIPT_DIR/.vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+
 set -x PATH /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code $PATH
 $SCRIPT_DIR/.vscode/extensions.sh
