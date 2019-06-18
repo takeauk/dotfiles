@@ -2,6 +2,8 @@
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
+ln -snfv $SCRIPT_DIR/.bashrc ~/.bashrc
+
 if [ ! -d ~/.config/fish ]; then
     mkdir -p ~/.config/fish
 fi
