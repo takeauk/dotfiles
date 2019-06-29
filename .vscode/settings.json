@@ -1,50 +1,45 @@
 {
-  "explorer.confirmDelete": false,
-  "git.enableSmartCommit": true,
-  "window.zoomLevel": 0,
-  "vim.hlsearch": true,
-  "vim.leader": "<space>",
-  "vim.normalModeKeyBindings": [
-    {
-      "before": [
-        "<leader>",
-        "<enter>"
-      ],
-      "after": [
-        "o",
-        "<esc>"
-      ]
-    }
-  ],
-  "vim.useSystemClipboard": true,
-  "vim.changeWordIncludesWhitespace": true,
-  "vim.easymotion": true,
-  "vim.sneak": true,
-  "vim.visualstar": true,
-  "c-cpp-flylint.clang.enable": false,
-  "c-cpp-flylint.flexelint.enable": false,
-  "workbench.editor.closeEmptyGroups": false,
-  "terminal.integrated.copyOnSelection": true,
-  "scm.alwaysShowProviders": true,
-  "files.autoGuessEncoding": true,
-  "editor.fontSize": 14,
-  "editor.fontFamily": "Osaka-Mono",
-  "terminal.integrated.fontFamily": "monospace",
-  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
-  "editor.snippetSuggestions": "top",
-  "editor.tabCompletion": "onlySnippets",
-  "breadcrumbs.enabled": true,
-  "glassit.alpha": 230,
-  "codegnuglobal.autoupdate": false,
-  "editor.minimap.showSlider": "always",
-  "editor.minimap.renderCharacters": false,
-  "workbench.colorTheme": "One Dark Pro",
-  "todohighlight.keywordsPattern": "TODO|FIXME|\\\\(([^)]+)\\\\)",
-  "todohighlight.isCaseSensitive": false,
-  "workbench.startupEditor": "newUntitledFile",
-  "terminal.integrated.fontSize": 14,
-  "debug.console.fontSize": 14,
-  "cSpell.userWords": [
-    "。\n"
-  ]
+    "explorer.confirmDelete": false,
+    "git.enableSmartCommit": true,
+    "window.zoomLevel": 0,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "<enter>"
+            ],
+            "after": [
+                "o",
+                "<esc>"
+            ]
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "vim.changeWordIncludesWhitespace": true,
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.visualstar": true,
+    "workbench.editor.closeEmptyGroups": false,
+    "terminal.integrated.copyOnSelection": true,
+    "scm.alwaysShowProviders": true,
+    "files.autoGuessEncoding": true,
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
+    "editor.snippetSuggestions": "top",
+    "editor.tabCompletion": "onlySnippets",
+    "breadcrumbs.enabled": true,
+    "glassit.alpha": 230,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.renderCharacters": false,
+    "todohighlight.keywordsPattern": "TODO|FIXME|\\\\(([^)]+)\\\\)",
+    "todohighlight.isCaseSensitive": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "vscode-icons",
+    "markdown-pdf.displayHeaderFooter": false,
+    "markdown-pdf.includeDefaultStyles": false,
+    "markdown-pdf.styles": [
+        "~/styles/markdown.css"
+    ],
+    "markdown.extension.preview.autoShowPreviewToSide": true,
 }

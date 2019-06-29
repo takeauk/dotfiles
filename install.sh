@@ -33,3 +33,6 @@ ln -snfv $SCRIPT_DIR/.vscode/keybindings.json ~/Library/Application\ Support/Cod
 
 set -x PATH /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code $PATH
 $SCRIPT_DIR/.vscode/extensions.sh
+
+ln -snfv $SCRIPT_DIR/.ideavimrc ~/.ideavimrc
+
