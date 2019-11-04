@@ -42,4 +42,5 @@
         "~/styles/markdown.css"
     ],
     "markdown.extension.preview.autoShowPreviewToSide": true,
+    "editor.minimap.enabled": true,
 }
