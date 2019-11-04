@@ -1,2 +1,4 @@
 set clipboard=unnamed
 
+noremap <Space><CR> o<ESC>
+
